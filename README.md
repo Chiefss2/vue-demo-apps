@@ -1,4 +1,4 @@
-# vue-users-manager-app
+# vuex-shop-app
 
 ## Project setup
 ```
