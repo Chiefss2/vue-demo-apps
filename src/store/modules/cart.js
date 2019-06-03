@@ -61,11 +61,9 @@ const actions = {
   },
   checkout({ commit, state }, products) {
     window.console.log(products);
-    // 保存购物车快照
     const savedCartItems = [...state.items];
     // 清除状态
     commit(CART.SET_CHECKOUT_STATUS, null);
-    // 清空购物车
     commit(CART.SET_CART_ITEMS, { items: [] });
     request({
       url: '/api/cart',
@@ -77,7 +75,6 @@ const actions = {
       })
       .catch(error => {
         commit(CART.SET_CHECKOUT_STATUS, error);
-        // 结算失败的时候购物车内容回滚
         commit(CART.SET_CART_ITEMS, savedCartItems);
       });
   }
